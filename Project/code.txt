@@ -1,0 +1,137 @@
+/* Includes ------------------------------------------------------------------*/
+#include "myfunctions.c"
+
+
+
+/* Private typedef -----------------------------------------------------------*/
+//GPIO_InitTypeDef GPIO_InitStructure;
+//TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+//TIM_OCInitTypeDef  TIM_OCInitStructure;
+
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
+/* Private functions ---------------------------------------------------------*/
+
+
+int main(void)
+{  
+  /* Setup the microcontroller system. Initialize the Embedded Flash Interface,  
+     initialize the PLL and update the SystemFrequency variable. */
+  SystemInit(); 
+  
+  /* Task 2 - Generate a PWM of 10kHz, 30% duty cycle via TIM3 using TIM3CLK */
+  /* REMEMBER to COMMENT TASK 1 when doing TASK2 and TASK3 */
+  
+ // RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO ,ENABLE);
+  //Init_Pin(GPIO_Pin_6,GPIO_Mode_AF_PP,GPIO_Speed_50MHz,GPIOB, RCC_APB2Periph_GPIOB);
+//  Init_Pin(GPIO_Pin_6,GPIO_Mode_AF_PP,GPIO_Speed_50MHz,GPIOA, RCC_APB2Periph_GPIOA);
+
+//   TIM_TimeBaseStructure.TIM_Period = 7199;
+//    TIM_TimeBaseStructure.TIM_Prescaler = 0;
+//    TIM_TimeBaseStructure.TIM_ClockDivision =0;
+//    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+//    TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+//
+//    TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+//    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+//    TIM_OCInitStructure.TIM_Pulse = 6000;
+//    TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+//   TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+//    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+//    TIM_Cmd(TIM3, ENABLE);
+  
+ // Init_Timer(20,50,TIM4,RCC_APB1Periph_TIM4 );
+//  
+//  Init_Timer(10,20,TIM3,RCC_APB1Periph_TIM3 ); 
+//
+//  Init_Pin(GPIO_Pin_11,GPIO_Mode_IPU,GPIO_Speed_50MHz,GPIOB, RCC_APB2Periph_GPIOB);
+//  Init_Pin(GPIO_Pin_12,GPIO_Mode_IPU,GPIO_Speed_50MHz,GPIOB, RCC_APB2Periph_GPIOB);
+//  Init_Pin(GPIO_Pin_13,GPIO_Mode_IPU,GPIO_Speed_50MHz,GPIOB, RCC_APB2Periph_GPIOB);
+//  Init_Pin(GPIO_Pin_14,GPIO_Mode_IPU,GPIO_Speed_50MHz,GPIOB, RCC_APB2Periph_GPIOB);
+//  Init_Pin(GPIO_Pin_15,GPIO_Mode_IPU,GPIO_Speed_50MHz,GPIOB, RCC_APB2Periph_GPIOB);
+//    
+ 
+  Init_Pin(GPIO_Pin_9,GPIO_Mode_Out_PP,GPIO_Speed_50MHz,GPIOF, RCC_APB2Periph_GPIOF);
+  /* Task 4 - Change the optimization of code and view waveform */
+
+  /* Task 5 - Generate a 600Hz at TIM4 */
+  //STM3210E_LCD_Init(); 
+  while(1){
+      GPIOF->BSRR = GPIO_Pin_9; 
+  
+  }
+  //LCD_Clear();
+ // char myString[7] = {'X','-','R','o','l','l',':'};  
+ // LCD_DrawString(3,20,myString,7);
+  
+//
+//  while (1)
+//  {
+////  /* Task 6 - Generate a 4 Different frequencies by pressing Joystick */
+//  if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11)==0){
+//    Timer_Disable(TIM4);
+//    GPIOF->BSRR = GPIO_Pin_9;    
+//  }else if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_12)==0){
+//    GPIOF->BRR = GPIO_Pin_9;
+//     Init_Timer(10,50,TIM4,RCC_APB1Periph_TIM4 );
+//  }else if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_13)==0){
+//    GPIOF->BSRR = GPIO_Pin_9;
+//    Init_Timer(40,50,TIM4,RCC_APB1Periph_TIM4 );
+//  }else if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_14)==0){
+//    GPIOF->BRR = GPIO_Pin_9;
+//    Init_Timer(60,50,TIM4,RCC_APB1Periph_TIM4 );
+//  }else if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_15)==0){
+//    GPIOF->BSRR = GPIO_Pin_9;
+//    Init_Timer(72,50,TIM4,RCC_APB1Periph_TIM4 );
+//  }
+//  } 
+//  
+//  STM3210E_LCD_Init(); 
+//  
+//  
+//  I2C_EE_Init();          // I2C Init
+//  RCC_Configuration();
+//  Gyro_Init(250);
+//  
+//  char myHex[10] = {'0','1','2','3','4','5','6','7','8','9'};
+//  
+//  while(1){
+//    
+//    //X-axis - Roll
+//    int16_t x_Roll=(I2C_ByteRead(L3G4200_Addr,0x29)<<8) | (I2C_ByteRead(L3G4200_Addr, 0x28) | 0);
+//    LCD_Clear();
+//    char myString[7] = {'X','-','R','o','l','l',':'};  
+//    LCD_DrawString(3,60,myString,7);
+//    char myNum[3] = {myHex[x_Roll/100],myHex[(x_Roll%100)/10],myHex[x_Roll%10]};
+//    LCD_DrawString(6,60,myNum,3);
+//    Delayms(50); 
+//    
+////// calculate angle from X,Y values: arctan
+////      int angle= atan2(y,x) * (180 / 3.14159265) + 180;    
+////// send to LCD
+////      LCD_Clear();
+////      char myString[6] = {'A','n','g','l','e',':'};
+////      LCD_DrawString(3,60,myString,6);
+////      char myNum[3] = {myHex[angle/100],myHex[(angle%100)/10],myHex[angle%10]};
+////      LCD_DrawString(5,60,myNum,3);
+////    /* main code ends here */    	
+////    Delayms(50); 
+////  
+//  
+//  }  
+
+  
+   STM3210E_LCD_Init(); 
+  LCD_Clear();
+  LCD_DrawChar(0, 0, 'a'); 	// Display a
+  LCD_DrawChar(4, 104, 'b'); 	// Dispaly b 
+
+
+
+
+
+
+  
+}
